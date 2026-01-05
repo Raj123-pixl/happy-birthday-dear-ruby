@@ -75,4 +75,82 @@ input[type="file"]{
 }
 
 p{
-    font-si
+    font-size:1em;
+    max-width:500px;
+    margin:15px auto;
+    line-height:1.6;
+    color:#f3d6dc;
+}
+
+button{
+    margin-top:12px;
+    padding:10px 22px;
+    border:none;
+    border-radius:20px;
+    background:#f1b9c4;
+    color:#7b2c3f;
+    font-size:1em;
+    cursor:pointer;
+}
+button:hover{
+    background:#ffd6de;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Song (local file) -->
+<audio id="song">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>🎉 Happy Birthday 🎉</h1>
+    <h2>Ruby Yadav 💖</h2>
+
+    <!-- 📸 Photo upload -->
+    <img id="preview" class="photo" src="">
+    <input type="file" accept="image/*" onchange="loadPhoto(event)">
+
+    <div class="heart">❤️</div>
+
+    <p>
+        Ruby, today is special because someone amazing was born.  
+        Your smile brings happiness and your presence feels magical ✨  
+        May your life always be filled with love, success & joy 💖
+    </p>
+
+    <button onclick="surprise()">Click for Surprise 🎁</button><br><br>
+    <button onclick="playSong()">▶ Play Birthday Song 🎵</button>
+</div>
+
+<script>
+function playSong(){
+    const song = document.getElementById("song");
+    song.play().catch(()=>{
+        alert("Tap again to play song 🎵");
+    });
+}
+
+function loadPhoto(event){
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+}
+
+function surprise(){
+    alert("Happy Birthday Ruby 🎂💖\nYou are truly special ✨");
+}
+
+// confetti
+for(let i=0;i<50;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
