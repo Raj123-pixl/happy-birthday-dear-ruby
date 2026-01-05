@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Ruby 💖</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff4e8d,#ff9aa2);
+    height:100vh;
+    overflow:hidden;
+    color:white;
+    text-align:center;
+}
+
+.box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding:20px;
+}
+
+h1{
+    font-size:3em;
+    animation:glow 2s infinite alternate;
+}
+
+h2{
+    font-size:2em;
+}
+
+img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:4px solid white;
+    object-fit:cover;
+    margin:15px 0;
+}
+
+p{
+    font-size:1.2em;
+    max-width:600px;
+    margin:auto;
+}
+
+.heart{
+    font-size:55px;
+    animation:beat 1.5s infinite;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff4e8d;
+    font-size:1em;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff4e8d;
+    color:white;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.3);}
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 10px white;}
+    to{text-shadow:0 0 25px pink;}
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:white;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{top:-10vh;transform:rotate(0);}
+    100%{top:110vh;transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Birthday Song -->
+<audio autoplay loop>
+<source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+</audio>
+
+<div class="box">
+<h1>🎉 Happy Birthday 🎉</h1>
+<h2>Ruby Yadav 💖</h2>
+
+<!-- Replace image link with Ruby's photo -->
+<img src="https://i.imgur.com/8Km9tLL.png">
+
+<div class="heart">❤️</div>
+
+<p>
+Ruby, today is special because someone amazing was born.  
+Your smile brings happiness and your presence feels magical ✨  
+May your life always be filled with love, success & joy 💫
+</p>
+
+<button onclick="msg()">Click for Surprise 🎁</button>
+</div>
+
+<script>
+function msg(){
+    alert("Happy Birthday Ruby 🎂❤️\nYou are truly special ✨");
+}
+
+for(let i=0;i<60;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(Math.random()*3+2)+"s";
+    c.style.backgroundColor=["#fff","#ffd1dc","#ff9aa2"][Math.floor(Math.random()*3)];
+    document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
